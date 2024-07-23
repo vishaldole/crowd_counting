@@ -42,10 +42,3 @@ Each model script has a corresponding script for generating and saving graphs of
 - `shanghai_b_show_graph.py`
 
 The generated graphs are saved in the `results` folder under directories named after the respective model scripts.
-
-## Installation
-
-To run the scripts, you need to have Python installed along with the required dependencies. You can install the dependencies using the following command:
-
-```sh
-pip install -r requirements.txt
