@@ -1,0 +1,117 @@
+## Datasets
+
+The models are trained and evaluated on the following datasets:
+
+1. **UCF50**: A crowd counting dataset.
+2. **QNRF**: A large-scale crowd counting dataset.
+3. **Shanghai_A**: A dataset part of the ShanghaiTech dataset.
+4. **Shanghai_B**: Another dataset part of the ShanghaiTech dataset.
+
+## Models
+
+### Original FPANet Model
+
+The original FPANet model is implemented in the following scripts:
+
+- `ucf50.py`
+- `qnrf.py`
+- `shanghai_a.py`
+- `shanghai_b.py`
+
+### Enhanced FPANet Model
+
+The enhanced FPANet model is implemented in the following scripts:
+
+- `noval_ucf50.py`
+- `noval_qnrf.py`
+- `noval_shanghai_a.py`
+- `noval_shanghai_b.py`
+
+
+## Graph Generation
+
+Each model script has a corresponding script for generating and saving graphs of the results:
+
+- `ucf50_show_graph.py`
+- `qnrf_show_graph.py`
+- `shanghai_a_show_graph.py`
+- `shanghai_b_show_graph.py`
+
+The generated graphs are saved in the `results` folder under directories named after the respective model scripts.
+
+## Requirements:
+	-Python 3.x
+	-PyTorch
+	-torchvision
+	-numpy
+	-PIL (Pillow)
+	-scipy
+	-sklearn
+	-tqdm
+	-matplotlib
+
+----------------------------Existing Model---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## Introduction of FPANet Model
+
+This tutorial provides a step-by-step guide to implement a crowd counting model using the dataset. The model is based on Feature Pyramid Networks (FPN) with additional enhancements using Pyramid Spatial Attention (PSA) and Lightweight Channel Attention (LCA). This guide covers data loading, data augmentation, model architecture, training, and evaluation processes.
+
+### Data Loading and Augmentation
+
+- Define paths for dataset folders and create directories if they don't exist.
+- load_data(folder_path): Loads images and corresponding counts from ground-truth .mat files.
+- CrowdDataset Class: Custom dataset class to load images and counts, applying necessary transformations.
+- DataLoader: Create DataLoader instances for train, validation, and test datasets.
+
+### Model Architecture : FPANet Model
+
+- FPANet Class: Implements Feature Pyramid Network with Pyramid Spatial Attention and Lightweight Channel Attention.
+- PyramidSpatialAttention Class: Defines Pyramid Spatial Attention mechanism.
+- LightWeightChannelAttention Class: Defines Lightweight Channel Attention mechanism.
+
+### Training Process
+
+- train_model(model, train_loader, val_loader, epochs=400, batch_size=4): Trains the model, saves training and validation loss and MAE in each epoch, and logs training details to a file.
+
+### Evaluation
+
+- Evaluates the model on the test dataset, calculates test loss, MAE, R² score, and RMSE, and logs evaluation details to a file.
+
+### Saved Model and Logs
+
+- saved the model, training and evaluation logs in the dataset specified result folder.
+
+-------------------NEW  MODEL--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## Introduction of Enhanced FPANet Model
+
+This tutorial provides a step-by-step guide to implement a crowd counting model using the UCF_CC_50 dataset. The model is based on Feature Pyramid Networks (FPN) with additional enhancements using Pyramid Spatial Attention (PSA), Lightweight Channel Attention (LCA), and Swin Transformer blocks. This guide covers data loading, data augmentation, model architecture, training, and evaluation processes. 
+
+### Data Loading and Augmentation
+
+- Define paths for dataset folders and create directories if they don't exist.
+- load_data(folder_path): Loads images and corresponding counts from ground-truth .mat files.
+- CrowdDataset Class: Custom dataset class to load images and counts, applying necessary transformations.
+- DataLoader: Create DataLoader instances for train, validation, and test datasets.
+
+### Model Architecture : FPANet Model
+
+- FPANet Class: Implements Feature Pyramid Network with Pyramid Spatial Attention and Lightweight Channel Attention.
+- PyramidSpatialAttention Class: Defines Pyramid Spatial Attention mechanism.
+- LightWeightChannelAttention Class: Defines Lightweight Channel Attention mechanism.
+- SwinTransformerBlock Class: Defines the Swin Transformer block used in the model.
+- WindowAttention Class: Defines window-based multi-head self-attention for the Swin Transformer block.
+
+### Training Process
+
+- train_model(model, train_loader, val_loader, epochs=400, batch_size=4): Trains the model, saves training and validation loss and MAE in each epoch, and logs training details to a file.
+
+### Evaluation
+
+- Evaluates the model on the test dataset, calculates test loss, MAE, R² score, and RMSE, and logs evaluation details to a file.
+
+### Saved Model and Logs
+
+- saved the model, training and evaluation logs in the dataset specified result folder.
+
+github link : https://github.com/vishaldole/crowd_counting
